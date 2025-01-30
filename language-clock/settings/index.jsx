@@ -2,12 +2,18 @@ registerSettingsPage(({ settings }) => (
   <Page>
     <Section
       title={
-        <Text bold align="center">
-          App Settings
-        </Text>
+        <ColorSelect
+          settingsKey="color"
+          colors={[
+            { color: "aqua" },
+            { color: "red" },
+            { color: "gold" },
+            { color: "aquamarine" },
+            { color: "deepskyblue" },
+            { color: "plum" },
+          ]}
+        />
       }
-    >
-      <Text>Hello world!</Text>
-    </Section>
+    ></Section>
   </Page>
 ));
