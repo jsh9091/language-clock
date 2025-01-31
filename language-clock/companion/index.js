@@ -19,11 +19,17 @@ settingsStorage.addEventListener("change", (evt) => {
   sendValue(evt.key, newValue);
 });
 
-// Settings were changed while the companion was not running
-if (companion.launchReasons.settingsChanged) { // TODO review
-  // Send the value of the setting
+/**
+ * Settings were changed while the companion was not running.
+ */
+if (companion.launchReasons.settingsChanged) {
+    // send color setting
   sendValue(KEY_COLOR, settingsStorage.getItem(KEY_COLOR));
-  sendValue(LANGUAGE_SELECTION, settingsStorage.getItem(LANGUAGE_SELECTION));
+
+  // get, process, then send language selection
+  let lang = JSON.parse(settingsStorage.getItem(LANGUAGE_SELECTION)).values[0].name;
+  let languageQuoted = '"' + lang + '"';
+  sendValue(LANGUAGE_SELECTION, languageQuoted);
 }
 
 function sendValue(key, val) {
