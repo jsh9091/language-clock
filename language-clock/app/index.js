@@ -53,6 +53,10 @@ messaging.peerSocket.addEventListener("message", (evt) => {
     hungarianHourLabel.style.fill = evt.data.value;
     hungarianMinuteLabel.style.fill = evt.data.value;
   }
+
+  if (evt && evt.data && evt.data.key === "languageSelection") {
+    console.log(evt.data.value);
+  }
 });
 
 /**

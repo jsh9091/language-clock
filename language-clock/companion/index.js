@@ -7,11 +7,20 @@ let LANGUAGE_SELECTION = "languageSelection";
 
 // Settings have been changed
 settingsStorage.addEventListener("change", (evt) => {
-  sendValue(evt.key, evt.newValue);
+
+  let newValue = "";
+  if (evt.key == LANGUAGE_SELECTION) {
+    let temp = JSON.parse(evt.newValue).values[0].name;
+    newValue = '"' + temp + '"';
+  } else if (evt.key == KEY_COLOR) {
+    newValue = evt.newValue;
+  }
+
+  sendValue(evt.key, newValue);
 });
 
 // Settings were changed while the companion was not running
-if (companion.launchReasons.settingsChanged) {
+if (companion.launchReasons.settingsChanged) { // TODO review
   // Send the value of the setting
   sendValue(KEY_COLOR, settingsStorage.getItem(KEY_COLOR));
   sendValue(LANGUAGE_SELECTION, settingsStorage.getItem(LANGUAGE_SELECTION));
