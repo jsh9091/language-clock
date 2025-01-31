@@ -44,7 +44,7 @@ registerSettingsPage(({ settings }) => (
       />
       <Select
         label={`Select Language`}
-        settingsKey="selection"
+        settingsKey="languageSelection"
         options={[
           { name: "Hungarian" }, 
           { name: "English" }, 
@@ -52,7 +52,8 @@ registerSettingsPage(({ settings }) => (
           { name: "Spanish" }, 
           { name: "German" }, 
           { name: "Italian" }, 
-          { name: "Esperanto" }, 
+          { name: "Esperanto" },
+          { name: "Ukrainian" }, 
           { name: "Latin" }]}
       />
     </Section>

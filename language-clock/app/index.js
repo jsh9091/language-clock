@@ -27,18 +27,33 @@ import * as document from "document";
 import { today as activity } from "user-activity";
 import { me as appbit } from "appbit";
 import { battery } from "power";
+import * as messaging from "messaging";
 
 // Update the clock every minute
 clock.granularity = "minutes";
 
 // Get a handle on the <text> elements
 const stepCountLabel = document.getElementById("stepCountLabel");
+const stepsIcon = document.getElementById("stepsIcon");
 const batteryLabel = document.getElementById("batteryLabel");
 const batteryIcon = document.getElementById("batteryIcon");
 const clockLabel = document.getElementById("clockLabel");
+const clockbox = document.getElementById("clockbox");
 const amPmLabel = document.getElementById("amPmLabel");
 const hungarianHourLabel = document.getElementById("hungarianHourLabel");
 const hungarianMinuteLabel = document.getElementById("hungarianMinuteLabel");
+
+messaging.peerSocket.addEventListener("message", (evt) => {
+  if (evt && evt.data && evt.data.key === "color") {
+    stepCountLabel.style.fill = evt.data.value;
+    stepsIcon.style.fill = evt.data.value;
+    batteryLabel.style.fill = evt.data.value;
+    batteryIcon.style.fill = evt.data.value;
+    clockbox.style.fill = evt.data.value;
+    hungarianHourLabel.style.fill = evt.data.value;
+    hungarianMinuteLabel.style.fill = evt.data.value;
+  }
+});
 
 /**
  * Update the display of clock values.
