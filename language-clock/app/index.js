@@ -27,7 +27,7 @@ import * as document from "document";
 import { today as activity } from "user-activity";
 import { me as appbit } from "appbit";
 import { battery } from "power";
-import * as messaging from "messaging";
+import * as simpleSettings from "./simple/device-settings";
 
 // Update the clock every minute
 clock.granularity = "minutes";
@@ -43,21 +43,32 @@ const amPmLabel = document.getElementById("amPmLabel");
 const hungarianHourLabel = document.getElementById("hungarianHourLabel");
 const hungarianMinuteLabel = document.getElementById("hungarianMinuteLabel");
 
-messaging.peerSocket.addEventListener("message", (evt) => {
-  if (evt && evt.data && evt.data.key === "color") {
-    stepCountLabel.style.fill = evt.data.value;
-    stepsIcon.style.fill = evt.data.value;
-    batteryLabel.style.fill = evt.data.value;
-    batteryIcon.style.fill = evt.data.value;
-    clockbox.style.fill = evt.data.value;
-    hungarianHourLabel.style.fill = evt.data.value;
-    hungarianMinuteLabel.style.fill = evt.data.value;
+/**
+ * Get and process settings changes.
+ * @param {*} data 
+ * @returns 
+ */
+function settingsCallback(data) {
+  if (!data) {
+    return;
   }
 
-  if (evt && evt.data && evt.data.key === "languageSelection") {
-    console.log(evt.data.value);
+  if (data.color) {
+    stepCountLabel.style.fill = data.color;
+    stepsIcon.style.fill = data.color;
+    batteryLabel.style.fill = data.color;
+    batteryIcon.style.fill = data.color;
+    clockbox.style.fill = data.color;
+    hungarianHourLabel.style.fill = data.color;
+    hungarianMinuteLabel.style.fill = data.color;
   }
-});
+
+  if (data.languageSelection) {
+    // TODO language switing funcationality 
+    console.log(data.languageSelection);
+  }
+}
+simpleSettings.initialize(settingsCallback);
 
 /**
  * Update the display of clock values.
