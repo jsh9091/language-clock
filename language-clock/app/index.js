@@ -88,14 +88,18 @@ clock.ontick = (evt) => {
   // get time information from API
   let todayDate = evt.date;
   let rawHours = todayDate.getHours();
+  rawHours = 9;
 
   let hours;
+  let languageHours;
   if (preferences.clockDisplay === "12h") {
     // 12 hour format
     hours = rawHours % 12 || 12;
+    languageHours = hours;
   } else {
     // 24 hour format
     hours = zeroPad(rawHours);
+    languageHours = rawHours;
   }
 
   let mins = todayDate.getMinutes();
@@ -108,7 +112,7 @@ clock.ontick = (evt) => {
   amPmLabel.text = rawHours >= 12 ? "PM" : "AM";
 
   // display Hungairan words for current time
-  hungarianHourLabel.text = `${hungarianNums[hours]}:`; // TODO fix zero pad issue with AM 24 hour clock
+  hungarianHourLabel.text = `${hungarianNums[languageHours]}:`;
   hungarianMinuteLabel.text = `${hungarianNums[mins]}`;
 
   updateBattery();
