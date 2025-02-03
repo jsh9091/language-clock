@@ -80,7 +80,7 @@
   fill: black
 }
 
-#hungarianHourLabel {
+#languageHourLabel {
   font-size: 50;
   font-family: System-Regular;
   text-length: 100;
@@ -90,7 +90,7 @@
   fill: aqua
 }
 
-#hungarianMinuteLabel {
+#languageMinuteLabel {
   font-size: 40;
   font-family: System-Regular;
   text-length: 100;

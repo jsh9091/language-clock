@@ -42,8 +42,10 @@ const batteryIcon = document.getElementById("batteryIcon");
 const clockLabel = document.getElementById("clockLabel");
 const clockbox = document.getElementById("clockbox");
 const amPmLabel = document.getElementById("amPmLabel");
-const hungarianHourLabel = document.getElementById("hungarianHourLabel");
-const hungarianMinuteLabel = document.getElementById("hungarianMinuteLabel");
+const languageHourLabel = document.getElementById("languageHourLabel");
+const languageMinuteLabel = document.getElementById("languageMinuteLabel");
+
+let languageNums = [];
 
 /**
  * Get and process settings changes.
@@ -61,13 +63,13 @@ function settingsCallback(data) {
     batteryLabel.style.fill = data.color;
     batteryIcon.style.fill = data.color;
     clockbox.style.fill = data.color;
-    hungarianHourLabel.style.fill = data.color;
-    hungarianMinuteLabel.style.fill = data.color;
+    languageHourLabel.style.fill = data.color;
+    languageMinuteLabel.style.fill = data.color;
   }
 
   if (data.languageSelection) {
     console.log(data.languageSelection);
-    let selected = getLanguage(data.languageSelection); // TODO set as displayed language
+    languageNums = getLanguage(data.languageSelection);
   }
 }
 simpleSettings.initialize(settingsCallback);
@@ -109,9 +111,12 @@ clock.ontick = (evt) => {
   // AM / PM indicator 
   amPmLabel.text = rawHours >= 12 ? "PM" : "AM";
 
-  // display Hungairan words for current time
-  hungarianHourLabel.text = `${hungarianNums[languageHours]}:`;
-  hungarianMinuteLabel.text = `${hungarianNums[mins]}`;
+  // guard against cases where value of undefined may display
+  if (languageNums.length != 0) {
+    // display words in the selected langauge for current time
+    languageHourLabel.text = `${languageNums[languageHours]}:`;
+    languageMinuteLabel.text = `${languageNums[mins]}`;
+  }
 
   updateBattery();
 };

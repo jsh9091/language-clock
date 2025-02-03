@@ -34,6 +34,6 @@
 
   <text id="clockLabel" />
   <text id="amPmLabel" />
-  <text id="hungarianHourLabel" />
-  <text id="hungarianMinuteLabel" />
+  <text id="languageHourLabel" />
+  <text id="languageMinuteLabel" />
 </svg>
