@@ -22,9 +22,47 @@
  * SOFTWARE.
  */
 
+/**
+ * For the given language name, returns the array of the numbers 0-60 in the given language.
+ * Returns an empty array if the language is not found.
+ * @param {*} lang 
+ * @returns array of strings
+ */
 export function getLanguage(lang) {
-    console.log("getLanguage: " + lang);
-    // TODO get correct array for input and return
+
+  let caseLang = lang.toLowerCase();
+  let selected;
+
+  switch (caseLang) {
+    case "german":
+      selected = german;
+      break;
+    case "french":
+      selected = french;
+      break;
+    case "ukrainian":
+      selected = ukrainian;
+      break;
+    case "latin":
+      selected = latin;
+      break;
+    case "english":
+      selected = english;
+      break;
+    case "hungarian":
+      selected = hungarian;
+      break;
+    case "spanish":
+      selected = spanish;
+      break;
+    case "italian":
+      selected = italian;
+      break;
+    default:
+      console.log("Unexpected value: " + lang);
+      selected = [];
+  }
+  return selected;
 }
 
 const german = ["Null", "Eins", "Zwei", "Drei", "Vier", "Fünf", "Sechs", "Sieben", "Acht", "Neun", "Zehn", "Elf", "Zwölf", "Dreizehn", "Vierzehn", "Fünfzehn", "Sechzehn", "Siebzehn", "Achtzehn", "Neunzehn", "Zwanzig", "Einundzwanzig", "Zweiundzwanzig", "Dreiundzwanzig", "Vierundzwanzig", "Fünfundzwanzig", "Sechsundzwanzig", "Siebenundzwanzig", "Achtundzwanzig", "Neunundzwanzig", "Dreißig", "Einunddreißig", "Zweiunddreißig", "Dreiunddreißig", "Vierunddreißig", "Fünfunddreißig", "Sechsunddreißig", "Siebenunddreißig", "Achtunddreißig", "Neununddreißig", "Vierzig", "Einundvierzig", "Zweiundvierzig", "Dreiundvierzig", "Vierundvierzig", "Fünfundvierzig", "Sechsundvierzig", "Siebenundvierzig", "Achtundvierzig", "Neunundvierzig", "Fünfzig", "Einundfünfzig", "Zweiundfünfzig", "Dreiundfünfzig", "Vierundfünfzig", "Fünfundfünfzig", "Sechsundfünfzig", "Siebenundfünfzig", "Achtundfünfzig", "Neunundfünfzig", "Sechzig"];

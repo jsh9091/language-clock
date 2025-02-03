@@ -66,9 +66,8 @@ function settingsCallback(data) {
   }
 
   if (data.languageSelection) {
-    // TODO language switing funcationality 
     console.log(data.languageSelection);
-    getLanguage(data.languageSelection);
+    let selected = getLanguage(data.languageSelection); // TODO set as displayed language
   }
 }
 simpleSettings.initialize(settingsCallback);
