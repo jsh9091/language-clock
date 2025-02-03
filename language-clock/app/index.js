@@ -29,6 +29,7 @@ import { me as appbit } from "appbit";
 import { battery } from "power";
 import * as simpleSettings from "./simple/device-settings";
 import { preferences } from "user-settings";
+import { getLanguage } from "./languages";
 
 // Update the clock every minute
 clock.granularity = "minutes";
@@ -67,6 +68,7 @@ function settingsCallback(data) {
   if (data.languageSelection) {
     // TODO language switing funcationality 
     console.log(data.languageSelection);
+    getLanguage(data.languageSelection);
   }
 }
 simpleSettings.initialize(settingsCallback);
@@ -106,7 +108,7 @@ clock.ontick = (evt) => {
   amPmLabel.text = rawHours >= 12 ? "PM" : "AM";
 
   // display Hungairan words for current time
-  hungarianHourLabel.text = `${hungarianNums[hours]}:`;
+  hungarianHourLabel.text = `${hungarianNums[hours]}:`; // TODO fix zero pad issue with AM 24 hour clock
   hungarianMinuteLabel.text = `${hungarianNums[mins]}`;
 
   updateBattery();
