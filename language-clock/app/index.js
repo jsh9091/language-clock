@@ -88,7 +88,6 @@ clock.ontick = (evt) => {
   // get time information from API
   let todayDate = evt.date;
   let rawHours = todayDate.getHours();
-  rawHours = 9;
 
   let hours;
   let languageHours;
