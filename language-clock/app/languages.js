@@ -58,6 +58,15 @@ export function getLanguage(lang) {
     case "italian":
       selected = italian;
       break;
+    case "esperanto":
+      selected = esperanto;
+      break;
+    case "chinese":
+      selected = chinese;
+      break;
+    case "greek":
+      selected = greek;
+      break;
     default:
       console.log("Unexpected value: " + lang);
       selected = [];
@@ -66,6 +75,10 @@ export function getLanguage(lang) {
 }
 
 const german = ["Null", "Eins", "Zwei", "Drei", "Vier", "Fünf", "Sechs", "Sieben", "Acht", "Neun", "Zehn", "Elf", "Zwölf", "Dreizehn", "Vierzehn", "Fünfzehn", "Sechzehn", "Siebzehn", "Achtzehn", "Neunzehn", "Zwanzig", "Einundzwanzig", "Zweiundzwanzig", "Dreiundzwanzig", "Vierundzwanzig", "Fünfundzwanzig", "Sechsundzwanzig", "Siebenundzwanzig", "Achtundzwanzig", "Neunundzwanzig", "Dreißig", "Einunddreißig", "Zweiunddreißig", "Dreiunddreißig", "Vierunddreißig", "Fünfunddreißig", "Sechsunddreißig", "Siebenunddreißig", "Achtunddreißig", "Neununddreißig", "Vierzig", "Einundvierzig", "Zweiundvierzig", "Dreiundvierzig", "Vierundvierzig", "Fünfundvierzig", "Sechsundvierzig", "Siebenundvierzig", "Achtundvierzig", "Neunundvierzig", "Fünfzig", "Einundfünfzig", "Zweiundfünfzig", "Dreiundfünfzig", "Vierundfünfzig", "Fünfundfünfzig", "Sechsundfünfzig", "Siebenundfünfzig", "Achtundfünfzig", "Neunundfünfzig", "Sechzig"];
+
+const esperanto = ["Nulo", "Unu", "Du", "Tri", "Kvar", "Kvin", "Ses", "Sep", "Ok", "Naŭ", "Dek", "Dek unu", "Dek du", "Dek tri", "Dek kvar", "Dek kvin", "Dek ses", "Dek sep", "Dek ok", "Dek naŭ", "Dudek", "Dudek unu", "Dudek du", "Dudek tri", "Dudek kvar", "Dudek kvin", "Dudek ses", "Dudek sep", "Dudek ok", "Dudek naŭ", "Tridek", "Tridek unu", "Tridek du", "Tridek tri", "Tridek kvar", "Tridek kvin", "Tridek ses", "Tridek sep", "Tridek ok", "Tridek naŭ", "Kvardek", "Kvardek unu", "Kvardek du", "Kvardek tri", "Kvardek kvar", "Kvardek kvin", "Kvardek ses", "Kvardek sep", "Kvardek ok", "Kvardek naŭ", "Kvindek", "Kvindek unu", "Kvindek du", "Kvindek tri", "Kvindek kvar", "Kvindek kvin", "Kvindek ses", "Kvindek sep", "Kvindek ok", "Kvindek naŭ", "Sesdek"];
+
+const chinese = ["零", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十", "十一", "十二", "十三", "十四", "十五", "十六", "十七", "十八", "十九", "二十", "二十一", "二十二", "二十三", "二十四", "二十五", "二十六", "二十七", "二十八", "二十九", "三十", "三十一", "三十二", "三十三", "三十四", "三十五", "三十六", "三十七", "三十八", "三十九", "四十", "四十一", "四十二", "四十三", "四十四", "四十五", "四十六", "四十七", "四十八", "四十九", "五十", "五十一", "五十二", "五十三", "五十四", "五十五", "五十六", "五十七", "五十八", "五十九", "六十"];
 
 const french = ["Zéro", "Un", "Deux", "Trois", "Quatre", "Cinq", "Six", "Sept", "Huit", "Neuf", "Dix", "Onze", "Douze", "Treize", "Quatorze", "Quinze", "Seize", "Dix-sept", "Dix-huit", "Dix-neuf", "Vingt", "Vingt et un", "Vingt-deux", "Vingt-trois", "Vingt-quatre", "Vingt-cinq", "Vingt-six", "Vingt-sept", "Vingt-huit", "Vingt-neuf", "Trente", "Trente et un", "Trente-deux", "Trente-trois", "Trente-quatre", "Trente-cinq", "Trente-six", "Trente-sept", "Trente-huit", "Trente-neuf", "Quarante", "Quarante et un", "Quarante-deux", "Quarante-trois", "Quarante-quatre", "Quarante-cinq", "Quarante-six", "Quarante-sept", "Quarante-huit", "Quarante-neuf", "Cinquante", "Cinquante et un", "Cinquante-deux", "Cinquante-trois", "Cinquante-quatre", "Cinquante-cinq", "Cinquante-six", "Cinquante-sept", "Cinquante-huit", "Cinquante-neuf", "Soixante"];
 
@@ -79,5 +92,8 @@ const hungarian = ["Nulla", "Egy", "Kettő", "Három", "Négy", "Öt", "Hat", "H
 
 const spanish = ["Cero", "Uno", "Dos", "Tres", "Cuatro", "Cinco", "Seis", "Siete", "Ocho", "Nueve", "Diez", "Once", "Doce", "Trece", "Catorce", "Quince", "Dieciséis", "Diecisiete", "Dieciocho", "Diecinueve", "Veinte", "Veintiuno", "Veintidós", "Veintitrés", "Veinticuatro", "Veinticinco", "Veintiséis", "Veintisiete", "Veintiocho", "Veintinueve", "Treinta", "Treinta y uno", "Treinta y dos", "Treinta y tres", "Treinta y cuatro", "Treinta y cinco", "Treinta y seis", "Treinta y siete", "Treinta y ocho", "Treinta y nueve", "Cuarenta", "Cuarenta y uno", "Cuarenta y dos", "Cuarenta y tres", "Cuarenta y cuatro", "Cuarenta y cinco", "Cuarenta y seis", "Cuarenta y siete", "Cuarenta y ocho", "Cuarenta y nueve", "Cincuenta", "Cincuenta y uno", "Cincuenta y dos", "Cincuenta y tres", "Cincuenta y cuatro", "Cincuenta y cinco", "Cincuenta y seis", "Cincuenta y siete", "Cincuenta y ocho", "Cincuenta y nueve", "Sesenta"];
 
+const greek = ["Μηδέν", "Ενας", "Δυο", "Τρία", "Τέσσερα", "Πέντε", "Εξι", "Επτά", "Οκτώ", "Εννέα", "Δέκα", "Εντεκα", "Δώδεκα", "Δεκατρείς", "Δεκατέσσερα", "Δεκαπέντε", "Δεκαέξι", "Δεκαεπτά", "Δεκαοχτώ", "Δεκαεννέα", "Είκοσι", "Είκοσι ένα", "Είκοσι δύο", "Είκοσι τρία", "Είκοσι τέσσερα", "Είκοσι πέντε", "Είκοσι έξι", "Είκοσι επτά", "Είκοσι οκτώ", "Είκοσι εννέα", "Τριάντα", "Τριάντα ένα", "Τριάντα δύο", "Τριάντα τρία", "Τριάντα τέσσερα", "Τριάντα πέντε", "Τριάντα έξι", "Τριάντα επτά", "Τριάντα οκτώ", "Τριάντα εννέα", "Σαράντα", "Σαράντα ένα", "Σαράντα δύο", "Σαράντα τρία", "Σαράντα τέσσερα", "Σαράντα πέντε", "Σαράντα έξι", "Σαράντα επτά", "Σαράντα οκτώ", "Σαράντα εννέα", "Πενήντα", "Πενήντα ένα", "Πενήντα δύο", "Πενήντα τρία", "Πενήντα τέσσερα", "Πενήντα πέντε", "Πενήντα έξι", "Πενήντα επτά", "Πενήντα οκτώ", "Πενήντα εννέα", "Εξήντα"];
+
 const italian = ["Zero", "Uno", "Due", "Tre", "Quattro", "Cinque", "Sei", "Sette", "Otto", "Nove", "Dieci", "Undici", "Dodici", "Tredici", "Quattordici", "Quindici", "Sedici", "Diciassette", "Diciotto", "Diciannove", "Venti", "Ventuno", "Ventidue", "Ventitré", "Ventiquattro", "Venticinque", "Ventisei", "Ventisette", "Ventotto", "Ventinove", "Trenta", "Trentuno", "Trentadue", "Trentatré", "Trentaquattro", "Trentacinque", "Trentasei", "Trentasette", "Trentotto", "Trentanove", "Quaranta", "Quarantuno", "Quarantadue", "Quarantatré", "Quarantaquattro", "Quarantacinque", "Quarantasei", "Quarantasette", "Quarantotto", "Quarantanove", "Cinquanta", "Cinquantuno", "Cinquantadue", "Cinquantatré", "Cinquantaquattro", "Cinquantacinque", "Cinquantasei", "Cinquantasette", "Cinquantotto", "Cinquantanove", "Sessanta"];
+
 
