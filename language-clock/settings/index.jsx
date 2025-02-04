@@ -53,7 +53,9 @@ registerSettingsPage(({ settings }) => (
           { name: "German" }, 
           { name: "Italian" }, 
           { name: "Esperanto" },
+          { name: "Chinese" }, 
           { name: "Ukrainian" }, 
+          { name: "Greek" }, 
           { name: "Latin" }]}
       />
     </Section>

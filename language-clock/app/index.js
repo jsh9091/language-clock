@@ -31,8 +31,8 @@ import * as simpleSettings from "./simple/device-settings";
 import { preferences } from "user-settings";
 import { getLanguage } from "./languages";
 
-// Update the clock every minute
-clock.granularity = "minutes";
+// Update the clock every second
+clock.granularity = "seconds";
 
 // Get a handle on the <text> elements
 const stepCountLabel = document.getElementById("stepCountLabel");
