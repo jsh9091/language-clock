@@ -70,9 +70,58 @@ function settingsCallback(data) {
   if (data.languageSelection) {
     console.log(data.languageSelection);
     languageNums = getLanguage(data.languageSelection);
+    updateLanguage(data.languageSelection);
   }
 }
 simpleSettings.initialize(settingsCallback);
+
+/**
+ * Updates the displayed language and handles styling issues on a per language basis.
+ * @param {*} lang 
+ */
+function updateLanguage(lang) {
+  // reset styles to default 
+  languageHourLabel.style.fontSize = 50;
+  languageMinuteLabel.style.fontSize = 40;
+  languageHourLabel.style.fontFamily = "System-Regular";
+  languageMinuteLabel.style.fontFamily = "System-Regular";
+
+  switch (lang) {
+    case "German":
+      languageHourLabel.style.fontSize = 44;
+      languageMinuteLabel.style.fontSize = 33;
+      break;
+    case "French":
+      languageMinuteLabel.style.fontSize = 34;
+      break;
+    case "Ukrainian":
+      languageHourLabel.style.fontSize = 40;
+      languageMinuteLabel.style.fontSize = 30;
+      break;
+    case "Latin": // TODO consider condenced font
+      languageHourLabel.style.fontSize = 46;
+      languageMinuteLabel.style.fontSize = 27;
+      break;
+    case "Spanish":
+      languageMinuteLabel.style.fontSize = 30;
+      break;
+    case "Greek":
+      languageHourLabel.style.fontSize = 46;
+      languageMinuteLabel.style.fontSize = 32;
+      break;
+    case "Italian":
+      languageMinuteLabel.style.fontSize = 34;
+      break;
+    case "English":
+    case "Hungarian":
+    case "Esperanto":
+    case "Chinese":
+      // these languages do not require custom styles
+      break;
+    default:
+      console.log("Unexpected value: " + lang);
+  }
+}
 
 /**
  * Update the display of clock values.
