@@ -124,10 +124,15 @@ function updateLanguage(lang) {
       languageMinuteLabel.style.fontSize = 34;
       languageMinuteLabel.y = 305;
       break;
+    case "Chinese":
+      languageHourLabel.style.fontSize = 50;
+      languageMinuteLabel.style.fontSize = 50;
+      languageHourLabel.y = 255;
+      languageMinuteLabel.y = 315;
+      break;
     case "English":
     case "Hungarian":
     case "Esperanto":
-    case "Chinese":
       // these languages do not require custom styles
       break;
     default:
