@@ -82,10 +82,10 @@ simpleSettings.initialize(settingsCallback);
  */
 function updateLanguage(lang) {
   // reset styles to default 
-  languageHourLabel.style.fontSize = 50;
-  languageMinuteLabel.style.fontSize = 40;
   languageHourLabel.style.fontFamily = "System-Regular";
   languageMinuteLabel.style.fontFamily = "System-Regular";
+  languageHourLabel.style.fontSize = 50;
+  languageMinuteLabel.style.fontSize = 40;
   languageHourLabel.y = 260;
   languageMinuteLabel.y = 310;
 
@@ -129,6 +129,14 @@ function updateLanguage(lang) {
       languageMinuteLabel.style.fontSize = 50;
       languageHourLabel.y = 255;
       languageMinuteLabel.y = 315;
+      break;
+    case "Hawaiian":
+      languageHourLabel.style.fontFamily = "FBCondensed-Regular";
+      languageMinuteLabel.style.fontFamily = "FBCondensed-Regular";
+      languageHourLabel.style.fontSize = 50;
+      languageMinuteLabel.style.fontSize = 45;
+      languageHourLabel.y = 255;
+      languageMinuteLabel.y = 300;
       break;
     case "English":
     case "Hungarian":

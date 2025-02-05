@@ -56,6 +56,7 @@ registerSettingsPage(({ settings }) => (
           { name: "Chinese" }, 
           { name: "Ukrainian" }, 
           { name: "Greek" }, 
+          { name: "Hawaiian" }, 
           { name: "Latin" }]}
       />
     </Section>
