@@ -32,7 +32,7 @@ import { preferences } from "user-settings";
 import { getLanguage } from "./languages";
 
 // Update the clock every second
-clock.granularity = "seconds";
+clock.granularity = "minutes";
 
 // Get a handle on the <text> elements
 const stepCountLabel = document.getElementById("stepCountLabel");
@@ -46,6 +46,7 @@ const languageHourLabel = document.getElementById("languageHourLabel");
 const languageMinuteLabel = document.getElementById("languageMinuteLabel");
 
 let languageNums = [];
+let languageHours, languageMins;
 
 /**
  * Get and process settings changes.
@@ -132,6 +133,8 @@ function updateLanguage(lang) {
     default:
       console.log("Unexpected value: " + lang);
   }
+  // update the actual label contents
+  setLanguageTime();
 }
 
 /**
@@ -151,7 +154,6 @@ clock.ontick = (evt) => {
   let rawHours = todayDate.getHours();
 
   let hours;
-  let languageHours;
   if (preferences.clockDisplay === "12h") {
     // 12 hour format
     hours = rawHours % 12 || 12;
@@ -164,6 +166,7 @@ clock.ontick = (evt) => {
 
   let mins = todayDate.getMinutes();
   let displayMins = zeroPad(mins);
+  languageMins = mins;
 
   // display time on main clock
   clockLabel.text = `${hours}:${displayMins}`;
@@ -171,18 +174,27 @@ clock.ontick = (evt) => {
   // AM / PM indicator 
   amPmLabel.text = rawHours >= 12 ? "PM" : "AM";
 
-  // guard against cases where value of undefined may display
-  if (languageNums.length != 0) {
-    // display words in the selected langauge for current time
-    let langHour = languageNums[languageHours];
-    let langMinute = languageNums[mins];
-    //console.log("Hour: " + langHour + " Minute: " + langMinute);
-    languageHourLabel.text = `${langHour}:`;
-    languageMinuteLabel.text = `${langMinute}`;
-  }
+  setLanguageTime();
 
   updateBattery();
 };
+
+/**
+ * Updates the language labels for the current time.
+ */
+function setLanguageTime() {
+  // guard against cases where value of undefined may display
+  if (languageNums.length != 0) {
+    // get the language words from global time values 
+    let langHour = languageNums[languageHours];
+    let langMinute = languageNums[languageMins];
+    // log for spot checking of language contents
+    console.log("Hour: " + langHour + " Minute: " + langMinute);
+    // display words in the selected langauge for current time
+    languageHourLabel.text = `${langHour}:`;
+    languageMinuteLabel.text = `${langMinute}`;
+  }
+}
 
 /**
  * Front appends a zero to an integer if less than ten.
