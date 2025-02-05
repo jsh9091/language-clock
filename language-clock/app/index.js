@@ -160,7 +160,11 @@ clock.ontick = (evt) => {
     languageHours = hours;
   } else {
     // 24 hour format
-    hours = zeroPad(rawHours);
+    if (rawHours > 9) {
+      hours = zeroPad(rawHours);
+    } else {
+      hours = rawHours;
+    }
     languageHours = rawHours;
   }
 
