@@ -85,32 +85,43 @@ function updateLanguage(lang) {
   languageMinuteLabel.style.fontSize = 40;
   languageHourLabel.style.fontFamily = "System-Regular";
   languageMinuteLabel.style.fontFamily = "System-Regular";
+  languageHourLabel.y = 260;
+  languageMinuteLabel.y = 310;
 
   switch (lang) {
     case "German":
       languageHourLabel.style.fontSize = 44;
       languageMinuteLabel.style.fontSize = 33;
+      languageMinuteLabel.y = 305;
       break;
     case "French":
       languageMinuteLabel.style.fontSize = 34;
+      languageMinuteLabel.y = 305;
       break;
     case "Ukrainian":
       languageHourLabel.style.fontSize = 40;
       languageMinuteLabel.style.fontSize = 30;
+      languageMinuteLabel.y = 305;
       break;
-    case "Latin": // TODO consider condenced font
+    case "Latin":
       languageHourLabel.style.fontSize = 46;
-      languageMinuteLabel.style.fontSize = 27;
+      languageMinuteLabel.style.fontSize = 30;
+      languageHourLabel.y = 250;
+      languageMinuteLabel.y = 293;
       break;
     case "Spanish":
       languageMinuteLabel.style.fontSize = 30;
+      languageMinuteLabel.y = 300;
       break;
     case "Greek":
       languageHourLabel.style.fontSize = 46;
       languageMinuteLabel.style.fontSize = 32;
+      languageHourLabel.y = 255;
+      languageMinuteLabel.y = 300;
       break;
     case "Italian":
       languageMinuteLabel.style.fontSize = 34;
+      languageMinuteLabel.y = 305;
       break;
     case "English":
     case "Hungarian":
@@ -163,8 +174,11 @@ clock.ontick = (evt) => {
   // guard against cases where value of undefined may display
   if (languageNums.length != 0) {
     // display words in the selected langauge for current time
-    languageHourLabel.text = `${languageNums[languageHours]}:`;
-    languageMinuteLabel.text = `${languageNums[mins]}`;
+    let langHour = languageNums[languageHours];
+    let langMinute = languageNums[mins];
+    //console.log("Hour: " + langHour + " Minute: " + langMinute);
+    languageHourLabel.text = `${langHour}:`;
+    languageMinuteLabel.text = `${langMinute}`;
   }
 
   updateBattery();
