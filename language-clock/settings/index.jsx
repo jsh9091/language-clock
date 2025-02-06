@@ -54,7 +54,7 @@ registerSettingsPage(({ settings }) => (
           { color: "gold" },
           { color: "orchid" },
           { color: "limegreen" },
-          { color: "orangered" },
+          { color: "darkgoldenrod" },
         ]}
       />
       <Select
