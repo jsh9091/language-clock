@@ -52,9 +52,9 @@ registerSettingsPage(({ settings }) => (
           { color: "aqua" },
           { color: "red" },
           { color: "gold" },
-          { color: "aquamarine" },
-          { color: "deepskyblue" },
-          { color: "plum" },
+          { color: "orchid" },
+          { color: "lime" },
+          { color: "orangered" },
         ]}
       />
       <Select
