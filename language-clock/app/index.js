@@ -120,10 +120,12 @@ function updateLanguage(lang) {
       languageMinuteLabel.y = 300;
       break;
     case latin:
-      languageHourLabel.style.fontSize = 46;
-      languageMinuteLabel.style.fontSize = 30;
+      languageHourLabel.style.fontFamily = "FBCondensed-Regular";
+      languageMinuteLabel.style.fontFamily = "FBCondensed-Regular";
+      languageHourLabel.style.fontSize = 50;
+      languageMinuteLabel.style.fontSize = 45;
       languageHourLabel.y = 250;
-      languageMinuteLabel.y = 293;
+      languageMinuteLabel.y = 295;
       break;
     case spanish:
       languageMinuteLabel.style.fontSize = 30;
