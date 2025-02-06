@@ -30,6 +30,20 @@ import { battery } from "power";
 import * as simpleSettings from "./simple/device-settings";
 import { preferences } from "user-settings";
 import { getLanguage } from "./languages";
+import {
+  german,
+  french,
+  ukrainian,
+  latin,
+  english,
+  hungarian,
+  spanish,
+  italian,
+  esperanto,
+  chinese,
+  greek,
+  hawaiian,
+} from "../common/constants";
 
 // Update the clock every second
 clock.granularity = "minutes";
@@ -90,47 +104,47 @@ function updateLanguage(lang) {
   languageMinuteLabel.y = 310;
 
   switch (lang) {
-    case "German":
+    case german:
       languageHourLabel.style.fontSize = 44;
       languageMinuteLabel.style.fontSize = 33;
       languageMinuteLabel.y = 305;
       break;
-    case "French":
+    case french:
       languageMinuteLabel.style.fontSize = 34;
       languageMinuteLabel.y = 305;
       break;
-    case "Ukrainian":
+    case ukrainian:
       languageHourLabel.style.fontSize = 40;
       languageMinuteLabel.style.fontSize = 30;
       languageMinuteLabel.y = 305;
       break;
-    case "Latin":
+    case latin:
       languageHourLabel.style.fontSize = 46;
       languageMinuteLabel.style.fontSize = 30;
       languageHourLabel.y = 250;
       languageMinuteLabel.y = 293;
       break;
-    case "Spanish":
+    case spanish:
       languageMinuteLabel.style.fontSize = 30;
       languageMinuteLabel.y = 300;
       break;
-    case "Greek":
+    case greek:
       languageHourLabel.style.fontSize = 46;
       languageMinuteLabel.style.fontSize = 32;
       languageHourLabel.y = 255;
       languageMinuteLabel.y = 300;
       break;
-    case "Italian":
+    case italian:
       languageMinuteLabel.style.fontSize = 34;
       languageMinuteLabel.y = 305;
       break;
-    case "Chinese":
+    case chinese:
       languageHourLabel.style.fontSize = 50;
       languageMinuteLabel.style.fontSize = 50;
       languageHourLabel.y = 255;
       languageMinuteLabel.y = 315;
       break;
-    case "Hawaiian":
+    case hawaiian:
       languageHourLabel.style.fontFamily = "FBCondensed-Regular";
       languageMinuteLabel.style.fontFamily = "FBCondensed-Regular";
       languageHourLabel.style.fontSize = 50;
@@ -138,9 +152,9 @@ function updateLanguage(lang) {
       languageHourLabel.y = 255;
       languageMinuteLabel.y = 300;
       break;
-    case "English":
-    case "Hungarian":
-    case "Esperanto":
+    case english:
+    case hungarian:
+    case esperanto:
       // these languages do not require custom styles
       break;
     default:
@@ -282,70 +296,3 @@ function updateBatteryIcon() {
     batteryIcon.image = "battery-low.png"
   }
 }
-
-/**
- * Array of Hungarian words for integers displayed on the clock. 
- */
-const hungarianNums = [
-  "Nulla",
-  "Egy",
-  "Kettő",
-  "Három",
-  "Négy",
-  "Öt",
-  "Hat",
-  "Hét",
-  "Nyolc",
-  "Kilenc",
-  "Tíz",
-  "Tizenegy",
-  "Tizenkét",
-  "Tizenhárom",
-  "Tizennégy",
-  "Tizenöt",
-  "Tizenhat",
-  "Tizenhét",
-  "Tizennyolc",
-  "Tizenkilenc",
-  "Húsz",
-  "Huszonegy",
-  "Húszonkettő",
-  "Huszonhárom",
-  "Huszonnégy",
-  "Huszonöt",
-  "Huszonhat",
-  "Huszonhét",
-  "Huszonnyolc",
-  "Huszonkilenc",
-  "Harminc",
-  "Harmincegy",
-  "Harminckettő",
-  "Harminchárom",
-  "Harmincnégy",
-  "Harmincöt",
-  "Harminchat",
-  "Harminchét",
-  "Harmincnyolc",
-  "Harminckilenc",
-  "Negyven",
-  "Negyvenegy",
-  "Negyvenkét",
-  "Negyvenhárom",
-  "Negyvennégy",
-  "Negyvenöt",
-  "Negyvenhat",
-  "Negyvenhét",
-  "Negyvennyolc",
-  "Negyvenkilenc",
-  "Ötven",
-  "Ötvenegy",
-  "Ötvenkét",
-  "Ötvenhárom",
-  "Ötvennégy",
-  "Ötvenöt",
-  "Ötvenhat",
-  "Ötvenhét",
-  "Ötvennyolc",
-  "Ötvenkilenc",
-  "Hatvan",
-];

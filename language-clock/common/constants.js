@@ -22,46 +22,15 @@
  * SOFTWARE.
  */
 
-import * as messaging from "messaging";
-import { settingsStorage } from "settings";
-
-const KEY_COLOR = "color";
-const LANGUAGE_SELECTION = "languageSelection";
-
-/**
- * Initializes getting of settings and processing inputs. 
- */
-export function initialize() {
-  settingsStorage.addEventListener("change", evt => {
-    if (evt.oldValue !== evt.newValue) {
-
-      let newValue = "";
-      if (evt.key == LANGUAGE_SELECTION) {
-        let rawName = JSON.parse(evt.newValue).values[0].name;
-        newValue = '"' + rawName + '"';
-
-      } else if (evt.key == KEY_COLOR) {
-        newValue = evt.newValue;
-      }
-
-      sendValue(evt.key, newValue);
-    }
-  });
-}
-
-function sendValue(key, val) {
-  if (val) {
-    sendSettingData({
-      key: key,
-      value: JSON.parse(val)
-    });
-  }
-}
-
-function sendSettingData(data) {
-  if (messaging.peerSocket.readyState === messaging.peerSocket.OPEN) {
-    messaging.peerSocket.send(data);
-  } else {
-    console.log("No peerSocket connection");
-  }
-}
+export const german = "German";
+export const french = "French";
+export const ukrainian = "Ukrainian";
+export const latin = "Latin";
+export const english = "English";
+export const hungarian = "Hungarian";
+export const spanish = "Spanish";
+export const italian = "Italian";
+export const esperanto = "Esperanto";
+export const chinese = "Chinese";
+export const greek = "Greek";
+export const hawaiian = "Hawaiian";

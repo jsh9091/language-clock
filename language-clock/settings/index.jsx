@@ -22,6 +22,21 @@
  * SOFTWARE.
  */
 
+import {
+  german,
+  french,
+  ukrainian,
+  latin,
+  english,
+  hungarian,
+  spanish,
+  italian,
+  esperanto,
+  chinese,
+  greek,
+  hawaiian,
+} from "../common/constants";
+
 registerSettingsPage(({ settings }) => (
   <Page>
     <Section
@@ -46,18 +61,18 @@ registerSettingsPage(({ settings }) => (
         label={`Select Language`}
         settingsKey="languageSelection"
         options={[
-          { name: "Hungarian" }, 
-          { name: "English" }, 
-          { name: "French" }, 
-          { name: "Spanish" }, 
-          { name: "German" }, 
-          { name: "Italian" }, 
-          { name: "Esperanto" },
-          { name: "Chinese" }, 
-          { name: "Ukrainian" }, 
-          { name: "Greek" }, 
-          { name: "Hawaiian" }, 
-          { name: "Latin" }]}
+          { name: hungarian }, 
+          { name: english }, 
+          { name: french }, 
+          { name: spanish }, 
+          { name: german }, 
+          { name: italian }, 
+          { name: esperanto },
+          { name: chinese }, 
+          { name: ukrainian }, 
+          { name: greek }, 
+          { name: hawaiian }, 
+          { name: latin }]}
       />
     </Section>
   </Page>
