@@ -53,7 +53,7 @@ registerSettingsPage(({ settings }) => (
           { color: "red" },
           { color: "gold" },
           { color: "orchid" },
-          { color: "lime" },
+          { color: "limegreen" },
           { color: "orangered" },
         ]}
       />
