@@ -83,7 +83,7 @@ function settingsCallback(data) {
   }
 
   if (data.languageSelection) {
-    console.log(data.languageSelection);
+    //console.log(data.languageSelection);
     languageNums = getLanguage(data.languageSelection);
     updateLanguage(data.languageSelection);
   }
@@ -220,7 +220,7 @@ function setLanguageTime() {
     let langHour = languageNums[languageHours];
     let langMinute = languageNums[languageMins];
     // log for spot checking of language contents
-    console.log("Hour: " + langHour + " Minute: " + langMinute);
+    //console.log("Hour: " + langHour + " Minute: " + langMinute);
     // display words in the selected langauge for current time
     languageHourLabel.text = `${langHour}:`;
     languageMinuteLabel.text = `${langMinute}`;
