@@ -61,18 +61,19 @@ registerSettingsPage(({ settings }) => (
         label={`Select Language`}
         settingsKey="languageSelection"
         options={[
-          { name: hungarian }, 
-          { name: english }, 
-          { name: french }, 
-          { name: spanish }, 
-          { name: german }, 
-          { name: italian }, 
-          { name: esperanto },
           { name: chinese }, 
-          { name: ukrainian }, 
+          { name: english }, 
+          { name: esperanto },
+          { name: french }, 
+          { name: german }, 
           { name: greek }, 
           { name: hawaiian }, 
-          { name: latin }]}
+          { name: hungarian }, 
+          { name: italian }, 
+          { name: latin },
+          { name: spanish }, 
+          { name: ukrainian }, 
+        ]}
       />
     </Section>
   </Page>
