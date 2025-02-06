@@ -116,7 +116,8 @@ function updateLanguage(lang) {
     case ukrainian:
       languageHourLabel.style.fontSize = 40;
       languageMinuteLabel.style.fontSize = 30;
-      languageMinuteLabel.y = 305;
+      languageHourLabel.y = 255;
+      languageMinuteLabel.y = 300;
       break;
     case latin:
       languageHourLabel.style.fontSize = 46;
