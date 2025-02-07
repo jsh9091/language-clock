@@ -130,10 +130,10 @@ function updateLanguage(lang) {
     case spanish:
       languageHourLabel.style.fontFamily = "FBCondensed-Regular";
       languageMinuteLabel.style.fontFamily = "FBCondensed-Regular";
-      languageHourLabel.style.fontSize = 55;
+      languageHourLabel.style.fontSize = 60;
       languageMinuteLabel.style.fontSize = 50;
-      languageHourLabel.y = 255;
-      languageMinuteLabel.y = 300;
+      languageHourLabel.y = 257;
+      languageMinuteLabel.y = 306;
       break;
     case greek:
       languageHourLabel.style.fontSize = 46;
@@ -142,8 +142,12 @@ function updateLanguage(lang) {
       languageMinuteLabel.y = 300;
       break;
     case italian:
-      languageMinuteLabel.style.fontSize = 34;
-      languageMinuteLabel.y = 305;
+      languageHourLabel.style.fontFamily = "FBCondensed-Regular";
+      languageMinuteLabel.style.fontFamily = "FBCondensed-Regular";
+      languageHourLabel.style.fontSize = 60;
+      languageMinuteLabel.style.fontSize = 50;
+      languageHourLabel.y = 257;
+      languageMinuteLabel.y = 307;
       break;
     case chinese:
       languageHourLabel.style.fontSize = 50;
@@ -231,6 +235,10 @@ function setLanguageTime() {
     // display words in the selected langauge for current time
     languageHourLabel.text = `${langHour}:`;
     languageMinuteLabel.text = `${langMinute}`;
+
+    
+    languageHourLabel.text = "Veintitrés";
+    languageMinuteLabel.text = "Cincuenta y nueve";
   }
 }
 
