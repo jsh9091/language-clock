@@ -37,8 +37,20 @@ import {
   hawaiian,
 } from "../common/constants";
 
-registerSettingsPage(({ settings }) => (
-  <Page>
+function Colours(props) {
+
+  if (props.settingsStorage.getItem("color") == null) {
+    // on fresh install, set default color
+    props.settingsStorage.setItem('color', JSON.stringify('aqua'));
+  }
+
+  if (props.settingsStorage.getItem("languageSelection") == null) {
+    // on fresh install, set default language selection 
+    props.settingsStorage.setItem('languageSelection', '"' + english + '"');
+  }
+  
+  return (
+    <Page>
     <Section
       title={
         <Text bold align="center">
@@ -77,4 +89,7 @@ registerSettingsPage(({ settings }) => (
       />
     </Section>
   </Page>
-));
+  );
+}
+
+registerSettingsPage(Colours);

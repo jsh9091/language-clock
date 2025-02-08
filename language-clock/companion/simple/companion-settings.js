@@ -32,13 +32,18 @@ const LANGUAGE_SELECTION = "languageSelection";
  * Initializes getting of settings and processing inputs. 
  */
 export function initialize() {
-  settingsStorage.addEventListener("change", evt => {
+  settingsStorage.addEventListener("change", (evt) => {
     if (evt.oldValue !== evt.newValue) {
-
       let newValue = "";
+
       if (evt.key == LANGUAGE_SELECTION) {
-        let rawName = JSON.parse(evt.newValue).values[0].name;
-        newValue = '"' + rawName + '"';
+        if (evt.newValue.values == null) {
+          // case for when called by setting default in JSX
+          newValue = evt.newValue;
+        } else {
+          let rawName = JSON.parse(evt.newValue).values[0].name;
+          newValue = '"' + rawName + '"';
+        }
 
       } else if (evt.key == KEY_COLOR) {
         newValue = evt.newValue;
