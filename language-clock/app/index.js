@@ -83,13 +83,9 @@ function settingsCallback(data) {
   }
 
   if (data.languageSelection) {
-    if (data.languageSelection.values != null) {
-      languageNums = getLanguage(data.languageSelection.values[0].name);
-      updateLanguage(data.languageSelection.values[0].name);
-    } else {
-      languageNums = getLanguage(data.languageSelection);
-      updateLanguage(data.languageSelection);
-    }
+    //console.log(data.languageSelection);
+    languageNums = getLanguage(data.languageSelection);
+    updateLanguage(data.languageSelection);
   }
 }
 simpleSettings.initialize(settingsCallback);

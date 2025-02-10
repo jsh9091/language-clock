@@ -37,20 +37,8 @@ import {
   hawaiian,
 } from "../common/constants";
 
-function Colours(props) {
-
-  if (props.settingsStorage.getItem("color") == null) {
-    // on fresh install, set default color
-    props.settingsStorage.setItem('color', JSON.stringify('aqua'));
-  }
-
-  if (props.settingsStorage.getItem("languageSelection") == null) {
-    // on fresh install, set default language selection 
-    props.settingsStorage.setItem('languageSelection', '"' + english + '"');
-  }
-  
-  return (
-    <Page>
+registerSettingsPage(({ settings }) => (
+  <Page>
     <Section
       title={
         <Text bold align="center">
@@ -84,12 +72,9 @@ function Colours(props) {
           { name: italian }, 
           { name: latin },
           { name: spanish }, 
-          { name: ukrainian }, 
+          { name: ukrainian }
         ]}
       />
     </Section>
   </Page>
-  );
-}
-
-registerSettingsPage(Colours);
+));
