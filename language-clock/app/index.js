@@ -82,6 +82,11 @@ function settingsCallback(data) {
     languageMinuteLabel.style.fill = data.color;
   }
 
+  if (languageNums.length == 0 && data.languageSelection == null) {
+    // only set default if we have no language set
+    data.languageSelection = english;
+  }
+
   if (data.languageSelection) {
     //console.log(data.languageSelection);
     languageNums = getLanguage(data.languageSelection);
