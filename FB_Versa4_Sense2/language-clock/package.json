@@ -1,5 +1,5 @@
 {
-  "name": "scratch-pad",
+  "name": "language-clock",
   "version": "0.1.0",
   "private": true,
   "license": "UNLICENSED",
@@ -8,9 +8,9 @@
     "@fitbit/sdk-cli": "^1.7.3"
   },
   "fitbit": {
-    "appUUID": "29c62cf2-c455-4949-b90c-dd10bafd8fb0",
+    "appUUID": "7cbb3907-9a5c-413d-b066-77202726486c",
     "appType": "clockface",
-    "appDisplayName": "Scratch Pad",
+    "appDisplayName": "Language Clock",
     "iconFile": "resources/icon.png",
     "wipeColor": "#ffffff",
     "requestedPermissions": [
