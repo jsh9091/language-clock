@@ -1,5 +1,5 @@
 {
-  "name": "magyar-clock",
+  "name": "language-clock",
   "version": "1.0.0",
   "private": true,
   "license": "UNLICENSED",
@@ -8,9 +8,9 @@
     "@fitbit/sdk-cli": "^1.7.3"
   },
   "fitbit": {
-    "appUUID": "f158b5f3-a46f-4cec-954c-1fe771920b5c",
+    "appUUID": "7cbb3907-9a5c-413d-b066-77202726486c",
     "appType": "clockface",
-    "appDisplayName": "Magyar Clock",
+    "appDisplayName": "Language Clock",
     "iconFile": "resources/icon.png",
     "wipeColor": "#ffffff",
     "requestedPermissions": [

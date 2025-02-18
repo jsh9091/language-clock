@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2024 Joshua Horvath
+ * Copyright (c) 2025 Joshua Horvath
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -27,18 +27,166 @@ import * as document from "document";
 import { today as activity } from "user-activity";
 import { me as appbit } from "appbit";
 import { battery } from "power";
+import * as simpleSettings from "./simple/device-settings";
+import { preferences } from "user-settings";
+import { getLanguage } from "./languages";
+import {
+  german,
+  french,
+  ukrainian,
+  latin,
+  english,
+  hungarian,
+  spanish,
+  italian,
+  esperanto,
+  chinese,
+  greek,
+  hawaiian,
+} from "../common/constants";
 
-// Update the clock every minute
+// Update the clock every second
 clock.granularity = "minutes";
 
 // Get a handle on the <text> elements
 const stepCountLabel = document.getElementById("stepCountLabel");
+const stepsIcon = document.getElementById("stepsIcon");
 const batteryLabel = document.getElementById("batteryLabel");
 const batteryIcon = document.getElementById("batteryIcon");
 const clockLabel = document.getElementById("clockLabel");
+const clockbox = document.getElementById("clockbox");
 const amPmLabel = document.getElementById("amPmLabel");
-const hungarianHourLabel = document.getElementById("hungarianHourLabel");
-const hungarianMinuteLabel = document.getElementById("hungarianMinuteLabel");
+const languageHourLabel = document.getElementById("languageHourLabel");
+const languageMinuteLabel = document.getElementById("languageMinuteLabel");
+
+let languageNums = [];
+let languageHours, languageMins;
+
+/**
+ * Get and process settings changes.
+ * @param {*} data 
+ * @returns 
+ */
+function settingsCallback(data) {
+  if (!data) {
+    return;
+  }
+
+  if (data.color) {
+    //console.log(data.color);
+    stepCountLabel.style.fill = data.color;
+    stepsIcon.style.fill = data.color;
+    batteryLabel.style.fill = data.color;
+    batteryIcon.style.fill = data.color;
+    clockbox.style.fill = data.color;
+    languageHourLabel.style.fill = data.color;
+    languageMinuteLabel.style.fill = data.color;
+  }
+
+  if (languageNums.length == 0 && data.languageSelection == null) {
+    // only set default if we have no language set
+    data.languageSelection = english;
+  }
+
+  if (data.languageSelection) {
+    //console.log(data.languageSelection);
+    languageNums = getLanguage(data.languageSelection);
+    updateLanguage(data.languageSelection);
+  }
+}
+simpleSettings.initialize(settingsCallback);
+
+/**
+ * Updates the displayed language and handles styling issues on a per language basis.
+ * @param {*} lang 
+ */
+function updateLanguage(lang) {
+  // reset styles to default 
+  languageHourLabel.style.fontFamily = "System-Regular";
+  languageMinuteLabel.style.fontFamily = "System-Regular";
+  languageHourLabel.style.fontSize = 50;
+  languageMinuteLabel.style.fontSize = 40;
+  languageHourLabel.y = 230;
+  languageMinuteLabel.y = 280;
+
+  switch (lang) {
+    case german:
+      languageHourLabel.style.fontFamily = "FBCondensed-Regular";
+      languageMinuteLabel.style.fontFamily = "FBCondensed-Regular";
+      languageHourLabel.style.fontSize = 60;
+      languageMinuteLabel.style.fontSize = 48;
+      languageHourLabel.y = 255;
+      languageMinuteLabel.y = 305;
+      break;
+    case french:
+      languageHourLabel.style.fontFamily = "FBCondensed-Regular";
+      languageMinuteLabel.style.fontFamily = "FBCondensed-Regular";
+      languageHourLabel.style.fontSize = 60;
+      languageMinuteLabel.style.fontSize = 50;
+      languageHourLabel.y = 257;
+      languageMinuteLabel.y = 307;
+      break;
+    case ukrainian:
+      languageHourLabel.style.fontSize = 40;
+      languageMinuteLabel.style.fontSize = 30;
+      languageHourLabel.y = 255;
+      languageMinuteLabel.y = 300;
+      break;
+    case latin:
+      languageHourLabel.style.fontFamily = "FBCondensed-Regular";
+      languageMinuteLabel.style.fontFamily = "FBCondensed-Regular";
+      languageHourLabel.style.fontSize = 50;
+      languageMinuteLabel.style.fontSize = 45;
+      languageHourLabel.y = 250;
+      languageMinuteLabel.y = 295;
+      break;
+    case spanish:
+      languageHourLabel.style.fontFamily = "FBCondensed-Regular";
+      languageMinuteLabel.style.fontFamily = "FBCondensed-Regular";
+      languageHourLabel.style.fontSize = 60;
+      languageMinuteLabel.style.fontSize = 50;
+      languageHourLabel.y = 257;
+      languageMinuteLabel.y = 306;
+      break;
+    case greek:
+      languageHourLabel.style.fontSize = 46;
+      languageMinuteLabel.style.fontSize = 32;
+      languageHourLabel.y = 255;
+      languageMinuteLabel.y = 300;
+      break;
+    case italian:
+      languageHourLabel.style.fontFamily = "FBCondensed-Regular";
+      languageMinuteLabel.style.fontFamily = "FBCondensed-Regular";
+      languageHourLabel.style.fontSize = 60;
+      languageMinuteLabel.style.fontSize = 50;
+      languageHourLabel.y = 257;
+      languageMinuteLabel.y = 307;
+      break;
+    case chinese:
+      languageHourLabel.style.fontSize = 50;
+      languageMinuteLabel.style.fontSize = 50;
+      languageHourLabel.y = 255;
+      languageMinuteLabel.y = 315;
+      break;
+    case hawaiian:
+      languageHourLabel.style.fontFamily = "FBCondensed-Regular";
+      languageMinuteLabel.style.fontFamily = "FBCondensed-Regular";
+      languageHourLabel.style.fontSize = 50;
+      languageMinuteLabel.style.fontSize = 45;
+      languageHourLabel.y = 255;
+      languageMinuteLabel.y = 300;
+      break;
+    case english:
+    case hungarian:
+    case esperanto:
+      // these languages do not require custom styles
+      break;
+    default:
+      console.log("Unexpected value: " + lang);
+  }
+  // update the actual label contents
+  setLanguageTime();
+}
 
 /**
  * Update the display of clock values.
@@ -56,11 +204,24 @@ clock.ontick = (evt) => {
   let todayDate = evt.date;
   let rawHours = todayDate.getHours();
 
-  // 12 hour format
-  let hours = rawHours % 12 || 12;
+  let hours;
+  if (preferences.clockDisplay === "12h") {
+    // 12 hour format
+    hours = rawHours % 12 || 12;
+    languageHours = hours;
+  } else {
+    // 24 hour format
+    if (rawHours > 9) {
+      hours = zeroPad(rawHours);
+    } else {
+      hours = rawHours;
+    }
+    languageHours = rawHours;
+  }
 
   let mins = todayDate.getMinutes();
   let displayMins = zeroPad(mins);
+  languageMins = mins;
 
   // display time on main clock
   clockLabel.text = `${hours}:${displayMins}`;
@@ -68,12 +229,27 @@ clock.ontick = (evt) => {
   // AM / PM indicator 
   amPmLabel.text = rawHours >= 12 ? "PM" : "AM";
 
-  // display Hungairan words for current time
-  hungarianHourLabel.text = `${hungarianNums[hours]}:`;
-  hungarianMinuteLabel.text = `${hungarianNums[mins]}`;
+  setLanguageTime();
 
   updateBattery();
 };
+
+/**
+ * Updates the language labels for the current time.
+ */
+function setLanguageTime() {
+  // guard against cases where value of undefined may display
+  if (languageNums.length != 0) {
+    // get the language words from global time values 
+    let langHour = languageNums[languageHours];
+    let langMinute = languageNums[languageMins];
+    // log for spot checking of language contents
+    //console.log("Hour: " + langHour + " Minute: " + langMinute);
+    // display words in the selected langauge for current time
+    languageHourLabel.text = `${langHour}:`;
+    languageMinuteLabel.text = `${langMinute}`;
+  }
+}
 
 /**
  * Front appends a zero to an integer if less than ten.
@@ -123,8 +299,7 @@ function updateBattery() {
  * Updates the battery lable GUI for battery percentage. 
  */
 function updateBatteryLabel() {
-  let percentSign = "%";//"&#x25";
-  batteryLabel.text = battery.chargeLevel + percentSign;
+  batteryLabel.text = battery.chargeLevel + "%";
 }
 
 /**
@@ -144,70 +319,3 @@ function updateBatteryIcon() {
     batteryIcon.image = "battery-low.png"
   }
 }
-
-/**
- * Array of Hungarian words for integers displayed on the clock. 
- */
-const hungarianNums = [
-  "Nulla",
-  "Egy",
-  "Kettő",
-  "Három",
-  "Négy",
-  "Öt",
-  "Hat",
-  "Hét",
-  "Nyolc",
-  "Kilenc",
-  "Tíz",
-  "Tizenegy",
-  "Tizenkét",
-  "Tizenhárom",
-  "Tizennégy",
-  "Tizenöt",
-  "Tizenhat",
-  "Tizenhét",
-  "Tizennyolc",
-  "Tizenkilenc",
-  "Húsz",
-  "Huszonegy",
-  "Húszonkettő",
-  "Huszonhárom",
-  "Huszonnégy",
-  "Huszonöt",
-  "Huszonhat",
-  "Huszonhét",
-  "Huszonnyolc",
-  "Huszonkilenc",
-  "Harminc",
-  "Harmincegy",
-  "Harminckettő",
-  "Harminchárom",
-  "Harmincnégy",
-  "Harmincöt",
-  "Harminchat",
-  "Harminchét",
-  "Harmincnyolc",
-  "Harminckilenc",
-  "Negyven",
-  "Negyvenegy",
-  "Negyvenkét",
-  "Negyvenhárom",
-  "Negyvennégy",
-  "Negyvenöt",
-  "Negyvenhat",
-  "Negyvenhét",
-  "Negyvennyolc",
-  "Negyvenkilenc",
-  "Ötven",
-  "Ötvenegy",
-  "Ötvenkét",
-  "Ötvenhárom",
-  "Ötvennégy",
-  "Ötvenöt",
-  "Ötvenhat",
-  "Ötvenhét",
-  "Ötvennyolc",
-  "Ötvenkilenc",
-  "Hatvan",
-];

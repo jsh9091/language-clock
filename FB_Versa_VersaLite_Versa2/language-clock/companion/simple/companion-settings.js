@@ -1,18 +1,18 @@
 /*
  * MIT License
- * 
+ *
  * Copyright (c) 2025 Joshua Horvath
- * 
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -22,80 +22,46 @@
  * SOFTWARE.
  */
 
- #stepCountLabel {
-  font-size: 28;
-  font-family: System-Regular;
-  text-length: 80;
-  text-anchor: start;
-  x: 17%;
-  y: 21%;
-  fill: aqua
+import * as messaging from "messaging";
+import { settingsStorage } from "settings";
+
+const KEY_COLOR = "color";
+const LANGUAGE_SELECTION = "languageSelection";
+
+/**
+ * Initializes getting of settings and processing inputs. 
+ */
+export function initialize() {
+  settingsStorage.addEventListener("change", evt => {
+    if (evt.oldValue !== evt.newValue) {
+
+      let newValue = "";
+      if (evt.key == LANGUAGE_SELECTION) {
+        let rawName = JSON.parse(evt.newValue).values[0].name;
+        newValue = '"' + rawName + '"';
+
+      } else if (evt.key == KEY_COLOR) {
+        newValue = evt.newValue;
+      }
+
+      sendValue(evt.key, newValue);
+    }
+  });
 }
 
-#stepsIcon {
-  x: 5%;
-  y: 14%;
-  width: "30";
-  height: "25";
-  fill: aqua; 
-  opacity: 1;
+function sendValue(key, val) {
+  if (val) {
+    sendSettingData({
+      key: key,
+      value: JSON.parse(val)
+    });
+  }
 }
 
-#batteryLabel {
-  font-size: 28;
-  font-family: System-Regular;
-  text-length: 80;
-  text-anchor: end;
-  x: 83%;
-  y: 21%;
-  fill: aqua
-}
-
-#batteryIcon {
-  x: 85%;
-  y: 14%;
-  width: "35";
-  height: "20";
-  fill: aqua; 
-  opacity: 1; 
-}
-
-#clockLabel {
-  font-size: 80;
-  font-family: System-Bold;
-  text-length: 80;
-  text-anchor: middle;
-  x: 50%-20;
-  y: 53%;
-  fill: black;
-}
-
-#amPmLabel {
-  font-size: 33;
-  font-family: System-Bold;
-  text-length: 30;
-  text-anchor: end;
-  x: 100%-10;
-  y: 53%;
-  fill: black
-}
-
-#languageHourLabel {
-  font-size: 50;
-  font-family: System-Regular;
-  text-length: 100;
-  text-anchor: middle;
-  x: 50%;
-  y: 230;
-  fill: aqua
-}
-
-#languageMinuteLabel {
-  font-size: 40;
-  font-family: System-Regular;
-  text-length: 100;
-  text-anchor: middle;
-  x: 50%;
-  y: 280;
-  fill: aqua
+function sendSettingData(data) {
+  if (messaging.peerSocket.readyState === messaging.peerSocket.OPEN) {
+    messaging.peerSocket.send(data);
+  } else {
+    console.log("No peerSocket connection");
+  }
 }
