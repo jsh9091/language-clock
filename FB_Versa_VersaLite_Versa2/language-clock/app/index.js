@@ -121,10 +121,10 @@ function updateLanguage(lang) {
     case french:
       languageHourLabel.style.fontFamily = "FBCondensed-Regular";
       languageMinuteLabel.style.fontFamily = "FBCondensed-Regular";
-      languageHourLabel.style.fontSize = 60;
+      languageHourLabel.style.fontSize = 55;
       languageMinuteLabel.style.fontSize = 50;
-      languageHourLabel.y = 257;
-      languageMinuteLabel.y = 307;
+      languageHourLabel.y = 230;
+      languageMinuteLabel.y = 280;
       break;
     case ukrainian:
       languageHourLabel.style.fontSize = 40;
@@ -248,6 +248,10 @@ function setLanguageTime() {
     // display words in the selected langauge for current time
     languageHourLabel.text = `${langHour}:`;
     languageMinuteLabel.text = `${langMinute}`;
+    
+    // TODO REMOVE
+    languageHourLabel.text = "Vingt-trois:";
+    languageMinuteLabel.text = "Cinquante-quatre";
   }
 }
 
