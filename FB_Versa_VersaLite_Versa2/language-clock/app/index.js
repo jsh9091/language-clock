@@ -89,7 +89,7 @@ function settingsCallback(data) {
   }
 
   if (data.languageSelection) {
-    //console.log(data.languageSelection);
+    console.log(data.languageSelection);
     languageNums = getLanguage(data.languageSelection);
     updateLanguage(data.languageSelection);
   }
@@ -113,10 +113,10 @@ function updateLanguage(lang) {
     case german:
       languageHourLabel.style.fontFamily = "FBCondensed-Regular";
       languageMinuteLabel.style.fontFamily = "FBCondensed-Regular";
-      languageHourLabel.style.fontSize = 60;
-      languageMinuteLabel.style.fontSize = 48;
-      languageHourLabel.y = 255;
-      languageMinuteLabel.y = 305;
+      languageHourLabel.style.fontSize = 55;
+      languageMinuteLabel.style.fontSize = 43;
+      languageHourLabel.y = 235;
+      languageMinuteLabel.y = 280;
       break;
     case french:
       languageHourLabel.style.fontFamily = "FBCondensed-Regular";
