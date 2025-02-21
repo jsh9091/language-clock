@@ -248,10 +248,6 @@ function setLanguageTime() {
     // display words in the selected langauge for current time
     languageHourLabel.text = `${langHour}:`;
     languageMinuteLabel.text = `${langMinute}`;
-    
-    // TODO REMOVE
-    languageHourLabel.text = "Vingt-trois:";
-    languageMinuteLabel.text = "Cinquante-quatre";
   }
 }
 
