@@ -127,10 +127,10 @@ function updateLanguage(lang) {
       languageMinuteLabel.y = 280;
       break;
     case ukrainian:
-      languageHourLabel.style.fontSize = 40;
-      languageMinuteLabel.style.fontSize = 30;
-      languageHourLabel.y = 255;
-      languageMinuteLabel.y = 300;
+      languageHourLabel.style.fontSize = 38;
+      languageMinuteLabel.style.fontSize = 33;
+      languageHourLabel.y = 227;
+      languageMinuteLabel.y = 278;
       break;
     case latin:
       languageHourLabel.style.fontFamily = "FBCondensed-Regular";
