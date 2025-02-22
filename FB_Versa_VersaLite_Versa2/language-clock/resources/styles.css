@@ -46,14 +46,14 @@
   font-family: System-Regular;
   text-length: 80;
   text-anchor: end;
-  x: 82%;
+  x: 81%;
   y: 21%;
   fill: aqua
 }
 
 #batteryIcon {
-  x: 85%;
-  y: 14%;
+  x: 84%;
+  y: "43";
   width: "35";
   height: "20";
   fill: aqua; 
