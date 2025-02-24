@@ -89,7 +89,7 @@ function settingsCallback(data) {
   }
 
   if (data.languageSelection) {
-    console.log(data.languageSelection);
+    //console.log(data.languageSelection);
     languageNums = getLanguage(data.languageSelection);
     updateLanguage(data.languageSelection);
   }
