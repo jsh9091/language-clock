@@ -149,18 +149,16 @@ function updateLanguage(lang) {
       languageMinuteLabel.y = 282;
       break;
     case greek:
-      languageHourLabel.style.fontSize = 46;
-      languageMinuteLabel.style.fontSize = 32;
-      languageHourLabel.y = 255;
-      languageMinuteLabel.y = 300;
+      languageHourLabel.style.fontSize = 45;
+      languageMinuteLabel.style.fontSize = 35;
+      languageHourLabel.y = 232;
+      languageMinuteLabel.y = 280;
       break;
     case italian:
-      languageHourLabel.style.fontFamily = "FBCondensed-Regular";
-      languageMinuteLabel.style.fontFamily = "FBCondensed-Regular";
-      languageHourLabel.style.fontSize = 60;
-      languageMinuteLabel.style.fontSize = 50;
-      languageHourLabel.y = 257;
-      languageMinuteLabel.y = 307;
+      languageHourLabel.style.fontSize = 50;
+      languageMinuteLabel.style.fontSize = 36;
+      languageHourLabel.y = 235;
+      languageMinuteLabel.y = 280;
       break;
     case chinese:
       languageHourLabel.style.fontSize = 50;
