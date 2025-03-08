@@ -175,9 +175,13 @@ function updateLanguage(lang) {
       languageMinuteLabel.y = 282;
       break;
     case english:
+      languageHourLabel.style.fontSize = 47;
+      break;
     case hungarian:
+      languageHourLabel.style.fontSize = 45;
+      break;
     case esperanto:
-      // these languages do not require custom styles
+      // this language does not require custom styles
       break;
     default:
       console.log("Unexpected value: " + lang);
