@@ -106,8 +106,8 @@ function updateLanguage(lang) {
   languageMinuteLabel.style.fontFamily = "System-Regular";
   languageHourLabel.style.fontSize = 50;
   languageMinuteLabel.style.fontSize = 40;
-  languageHourLabel.y = 230;
-  languageMinuteLabel.y = 280;
+  languageHourLabel.y = 232;
+  languageMinuteLabel.y = 277;
 
   switch (lang) {
     case german:
