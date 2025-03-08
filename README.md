@@ -7,4 +7,24 @@ Note: The watch-face should be selected and running on the phone while changing 
 
 Note: This watch-face is not yet published to the Fitbit app store. 
 
-![screenshot](Screenshot.png)
+![screenshot of watch-face](Screenshot.png)
+
+---
+Settings panel for watch-face in Fitbit phone app: 
+
+![seetings panel in Fitbit phone app](Settings%20Panel.png)
+
+---
+**Current supported Languages:**
+- Chinese 
+- English  
+- Esperanto 
+- French  
+- German  
+- Greek  
+- Hawaiian  
+- Hungarian  
+- Italian  
+- Latin 
+- Spanish 
+- Ukrainian
