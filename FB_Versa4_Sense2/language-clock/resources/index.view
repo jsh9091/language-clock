@@ -21,7 +21,7 @@
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE. -->
 
-  <svg class="background">
+<svg class="background">
   <rect x="0" y="0" width="100%" height="30%" fill="black" />
   <rect x="5" y="30%" width="97%" height="30%" fill="aqua" id="clockbox" />
   <rect x="0" y="60%" width="100%" height="45%" fill="black" />
