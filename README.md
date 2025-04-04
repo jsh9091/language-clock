@@ -5,8 +5,6 @@ By default after installation, the watch-face will display English words. To cha
 
 Note: The watch-face should be selected and running on the phone while changing the selected language and color within the phone app. If the watch-face is not currently running on the Fitbit watch, then the setting changes might not take on the watch. 
 
-Note: This watch-face is not yet published to the Fitbit app store. 
-
 [Fitbit App Gallery listing](https://gallery.fitbit.com/details/7cbb3907-9a5c-413d-b066-77202726486c?key=0f7c31d1-c7cc-4bb4-8b95-341c4b53f7b8) 
 
 ![screenshot of watch-face](Screenshot.png)
